@@ -132,13 +132,13 @@ $repoRoot = $PSScriptRoot
 # Replacements map (order matters — longer/more-specific patterns first)
 # ---------------------------------------------------------------------------
 $replacements = [ordered]@{
-    'MyAuthor/MyModule'                         = "$GitHubUser/$RepoName"
-    '00000000-0000-0000-0000-000000000000'      = $newGuid
-    'MyModule PowerShell module'                = $Description
-    "(c) MyAuthor. All rights reserved."       = "(c) $Author. All rights reserved."
-    "Author = 'MyAuthor'"                       = "Author = '$Author'"
-    'MyModule'                                  = $ModuleName
-    'MyAuthor'                                  = $Author
+    'MyAuthor/MyModule'                    = "$GitHubUser/$RepoName"
+    '00000000-0000-0000-0000-000000000000' = $newGuid
+    'MyModule PowerShell module'           = $Description
+    "(c) MyAuthor. All rights reserved."   = "(c) $Author. All rights reserved."
+    "Author = 'MyAuthor'"                  = "Author = '$Author'"
+    'MyModule'                             = $ModuleName
+    'MyAuthor'                             = $Author
 }
 if ($tagsValue) {
     $replacements['Tags = @()'] = "Tags = @($tagsValue)"
