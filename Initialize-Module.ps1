@@ -115,7 +115,7 @@ if (-not $RepoName) {
 # Build the tags array string for the manifest
 $tagsArray = if ($Tags) {
     $tagList = $Tags -split '\s*,\s*' | Where-Object { $_ } | ForEach-Object {
-        if ($_ -match "['\`"]") {
+        if ($_ -match '[\x27\x22]') {
             throw "Tag '$_' contains a quote character, which is not valid in a PSGallery tag."
         }
         "'$_'"

@@ -69,16 +69,16 @@ PowerShellVersion = '7.0'
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 # NestedModules = @()
 
-# Functions to export from this module, for best performance, do not use wildcards and do not delete this entry.
+# Functions to export from this module, for best performance, do not use wildcards and do not delete the entry.
 FunctionsToExport = 'Get-MyModuleInfo'
 
-# Cmdlets to export from this module, for best performance, do not use wildcards and do not delete this entry.
+# Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry.
 CmdletsToExport = @()
 
 # Variables to export from this module
 VariablesToExport = @()
 
-# Aliases to export from this module, for best performance, do not use wildcards and do not delete this entry.
+# Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry.
 AliasesToExport = @()
 
 # DSC resources to export from this module
