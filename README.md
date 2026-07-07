@@ -30,7 +30,7 @@ Get-Command -Module PasskeyDiagnostics
 
 #### Prerequisites
 
-- PowerShell 5.1+ or PowerShell 7+
+- PowerShell 7+
 - [Pester](https://pester.dev) 5.x (`Install-Module Pester -MinimumVersion 5.0 -Scope CurrentUser`)
 
 #### Running tests

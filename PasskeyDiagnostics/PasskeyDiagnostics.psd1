@@ -15,7 +15,7 @@ RootModule = 'PasskeyDiagnostics.psm1'
 ModuleVersion = '0.1.0'
 
 # Supported PSEditions
-# CompatiblePSEditions = @()
+CompatiblePSEditions = @('Core')
 
 # ID used to uniquely identify this module
 GUID = 'd0035040-9bc5-4890-be0d-b982ffb3dc78'
@@ -33,7 +33,7 @@ Copyright = '(c) BurtHarris. All rights reserved.'
 Description = 'PowerShell troubleshooting aides for passkey authentication'
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '5.1'
+PowerShellVersion = '7.0'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''

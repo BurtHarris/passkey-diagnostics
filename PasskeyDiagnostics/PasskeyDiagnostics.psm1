@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 # PasskeyDiagnostics.psm1
 # Placeholder — replace with your implementation.
 # This file is loaded automatically by the module manifest.
