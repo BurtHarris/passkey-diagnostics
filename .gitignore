@@ -1,0 +1,25 @@
+# PowerShell build outputs
+/output/
+/Release/
+*.zip
+
+# Pester test results
+testResults.xml
+coverage.xml
+*.coverage.xml
+
+# PSScriptAnalyzer cache
+.PSScriptAnalyzerCache/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/settings.json
+*.suo
+*.user
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
