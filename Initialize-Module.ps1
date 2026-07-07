@@ -141,7 +141,7 @@ $replacements = [ordered]@{
     'MyAuthor'                                  = $Author
 }
 if ($tagsValue) {
-    $replacements['Tags = @()'] = "Tags = $tagsValue"
+    $replacements['Tags = @()'] = "Tags = @($tagsValue)"
 }
 
 # ---------------------------------------------------------------------------

@@ -17,6 +17,8 @@ ModuleVersion = '0.1.0'
 CompatiblePSEditions = @('Core')
 
 # ID used to uniquely identify this module
+# NOTE: This is an intentional nil GUID placeholder — run Initialize-Module.ps1
+#       to replace it with a unique value before publishing your module.
 GUID = '00000000-0000-0000-0000-000000000000'
 
 # Author of this module
