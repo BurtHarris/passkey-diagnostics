@@ -24,7 +24,15 @@ Import-Module PasskeyDiagnostics
 
 # List available commands
 Get-Command -Module PasskeyDiagnostics
+
+# Collect passkey diagnostic information
+Get-PasskeyDiagnosticInfo
+
+# View structured log messages captured by PSFramework
+Get-PSFMessage
 ```
+
+PSFramework routes all module messages through its structured logging infrastructure. Use `Get-PSFMessage` to inspect the in-memory log and configure logging providers (file, event log, etc.) via `Set-PSFLoggingProvider`.
 
 ### Development
 
@@ -32,6 +40,7 @@ Get-Command -Module PasskeyDiagnostics
 
 - PowerShell 7+
 - [Pester](https://pester.dev) 5.x (`Install-Module Pester -MinimumVersion 5.0 -Scope CurrentUser`)
+- [PSFramework](https://psframework.org) 1.x (`Install-Module PSFramework -MinimumVersion 1.0.0 -Scope CurrentUser`)
 
 #### Running tests
 

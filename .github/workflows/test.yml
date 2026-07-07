@@ -19,6 +19,13 @@ jobs:
             Install-Module Pester -MinimumVersion 5.0 -Force -Scope CurrentUser
           }
 
+      - name: Install PSFramework
+        shell: pwsh
+        run: |
+          if (-not (Get-Module PSFramework -ListAvailable | Where-Object Version -ge '1.0.0')) {
+            Install-Module PSFramework -MinimumVersion 1.0.0 -Force -Scope CurrentUser
+          }
+
       - name: Run Pester tests
         shell: pwsh
         run: |
