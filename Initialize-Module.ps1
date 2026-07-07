@@ -84,7 +84,10 @@ function Update-FileContent {
 # ---------------------------------------------------------------------------
 if (-not $Author) {
     $Author = git config user.name 2>$null
-    if (-not $Author) { $Author = $env:USERNAME }
+    if ($LASTEXITCODE -ne 0 -or -not $Author) {
+        Write-Verbose "git config user.name not set; defaulting Author to `$env:USERNAME ('$($env:USERNAME)')"
+        $Author = $env:USERNAME
+    }
 }
 
 if (-not $Description) {
@@ -94,9 +97,13 @@ if (-not $Description) {
 if (-not $GitHubUser) {
     # Try to extract from the origin remote URL (https or ssh)
     $remoteUrl = git remote get-url origin 2>$null
-    if ($remoteUrl -match 'github\.com[:/]([^/]+)/') {
+    if ($LASTEXITCODE -ne 0 -or -not $remoteUrl) {
+        Write-Verbose "No 'origin' remote found; defaulting GitHubUser to Author ('$Author')"
+        $GitHubUser = $Author
+    } elseif ($remoteUrl -match 'github\.com[:/]([^/]+)/') {
         $GitHubUser = $Matches[1]
     } else {
+        Write-Verbose "origin remote '$remoteUrl' is not a GitHub URL; defaulting GitHubUser to Author ('$Author')"
         $GitHubUser = $Author
     }
 }
@@ -107,12 +114,18 @@ if (-not $RepoName) {
 
 # Build the tags array string for the manifest
 $tagsArray = if ($Tags) {
-    $tagList = $Tags -split '\s*,\s*' | Where-Object { $_ } | ForEach-Object { "'$_'" }
+    $tagList = $Tags -split '\s*,\s*' | Where-Object { $_ } | ForEach-Object {
+        if ($_ -match "['\`"]") {
+            throw "Tag '$_' contains a quote character, which is not valid in a PSGallery tag."
+        }
+        "'$_'"
+    }
     $tagList -join ', '
 } else {
     ''
 }
 $tagsValue = if ($tagsArray) { $tagsArray } else { '' }
+
 
 # Generate a fresh GUID
 $newGuid = [guid]::NewGuid().ToString()
