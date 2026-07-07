@@ -137,9 +137,11 @@ $replacements = [ordered]@{
     'MyModule PowerShell module'                = $Description
     "(c) MyAuthor. All rights reserved."       = "(c) $Author. All rights reserved."
     "Author = 'MyAuthor'"                       = "Author = '$Author'"
-    "Tags = @()"                                = if ($tagsValue) { "Tags = $tagsValue" } else { "Tags = @()" }
     'MyModule'                                  = $ModuleName
     'MyAuthor'                                  = $Author
+}
+if ($tagsValue) {
+    $replacements['Tags = @()'] = "Tags = $tagsValue"
 }
 
 # ---------------------------------------------------------------------------
