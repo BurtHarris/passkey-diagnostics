@@ -48,6 +48,7 @@ in the manifest's `FunctionsToExport`, and write tests.
 
 - PowerShell 7+
 - [Pester](https://pester.dev) 5.x (`Install-Module Pester -MinimumVersion 5.0 -Scope CurrentUser`)
+- [PSFramework](https://psframework.org) 1.x (`Install-Module PSFramework -MinimumVersion 1.0.0 -Scope CurrentUser`)
 
 ### Running tests
 
